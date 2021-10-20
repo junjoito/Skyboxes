@@ -98,6 +98,7 @@ function switchSkyBox (skyboxName) {
 
   skybox = new THREE.Mesh(skyboxGeo, materialArray);
   scene.add(skybox);
+  
 }
 
 function toggleAutoRotate(value) {
@@ -111,6 +112,26 @@ function toggleZoom(value) {
   zoomBtn.textContent = value ? 'Abducir' : "Sumergir";
   loading.style.display = value ? 'none' : 'show';
 }
+
+function getAudio(cubo) {
+  switch (cubo) {
+    case "julia":
+      document.getElementById("audio2").pause();
+      document.getElementById("audio3").pause();
+      return document.getElementById("audio1").play();
+    case "interior":
+      document.getElementById("audio1").pause();
+      document.getElementById("audio3").pause();
+      return document.getElementById("audio2").play();
+    case "arriera":
+      document.getElementById("audio1").pause();
+      document.getElementById("audio2").pause();
+      return document.getElementById("audio3").play();
+    default:
+      return null;
+  };
+}
+
 
 const feriaBtn = document.getElementById('feria');
 const burroBtn = document.getElementById('burro');
@@ -127,7 +148,6 @@ const zoomBtn = document.getElementById('zoom');
 const loading = document.getElementById('loading');
 
 
-
 logoBtn.addEventListener('click', () => switchSkyBox('logo'))
 feriaBtn.addEventListener('click', () => switchSkyBox('iglesia'))
 casaBtn.addEventListener('click', () => switchSkyBox('julia'))
@@ -140,3 +160,7 @@ diositoBtn.addEventListener('click', () => switchSkyBox('misa'))
 
 autoRotateBtn.addEventListener('click', () => toggleAutoRotate(!autoRotate))
 zoomBtn.addEventListener('click', () => toggleZoom(!zoomOut))
+
+casaBtn.addEventListener('click', () => getAudio('julia'))
+dentroBtn.addEventListener('click', () => getAudio('interior'))
+extBtn.addEventListener('click', () => getAudio('arriera'))
