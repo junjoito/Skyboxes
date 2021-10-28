@@ -4,6 +4,7 @@ body {
   margin: 0;
   background: url('../img/textures/backgraund.jpg');
   overflow: hidden;
+  text-align: center;
 }
 * {
   transition: all .2s ease;
