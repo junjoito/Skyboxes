@@ -3,55 +3,59 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="sass/custom.css">
     <link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
     <link rel="shortcut icon" href="img/bocetos/b&w_logo_up.png" type="image/x-icon">
     <title>La Otra Memoria</title>
   </head>
   <body>
-    <div class="site-logo">la otra memoria</div>		
-    <div id="loading">
-      <h1>La Otra Memoria</h1>
-      <div>Cargando...</div>
-    </div>
-    <div class="drag">
-      <div class="info">
-        <i class="icon-info-sign"></i>
-  
-        <span class="extra-info">
-          Haga click y arrastre el mouse sobre la pantalla para moverse.
-        </span>
+      <div class="site-logo">La Otra Memoria</div>		
+      <div id="loading">
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <h1>La Otra Memoria</h1>
+        <div>Cargando...</div>
       </div>
-    </div>
-    <div class="buttons">      
-      <button id="logo">La Otra Memoria</button>
-      <button id="feria">Una feria muy colorida</button>        
-      <button id="julia">El regreso a casa</button>
-      <button id="interior">Es mi hogar</button>
-      <button id="arriera">La arriera</button>
-      <button id="burro">El barranco</button>
-      <button id="pereza">Baño</button>
-      <button id="afuera">La Perezosa</button>
-      <button id="diosito">Dorime</button>
+      <div class="drag">
+        <div class="info">
+          <i class="icon-info-sign"></i>
+    
+          <span class="extra-info">
+            Haga click y arrastre el mouse sobre la pantalla para moverse.
+          </span>
+        </div>
+      </div>
+      <div class="buttons d-grid ">  
+          <button class="badge bg-info text-wrap" id="logo">La Otra Memoria</button>
+          <button class="badge bg-primary text-wrap" id="feria">Una feria muy colorida</button>        
+          <button class="badge bg-primary text-wrap" id="julia">El regreso a casa</button>
+          <button class="badge bg-primary text-wrap" id="interior">Es mi hogar</button>
+          <button class="badge bg-primary text-wrap" id="arriera">La arriera</button>
+          <button class="badge bg-primary text-wrap" id="burro">El barranco</button>
+          <button class="badge bg-primary text-wrap" id="pereza">Baño</button>
+          <button class="badge bg-primary text-wrap" id="afuera">La Perezosa</button>
+          <button class="badge bg-primary text-wrap" id="diosito">Dorime</button>
+          <button class="badge bg-secondary text-wrap" id="autoRotate">Detener</button>
+          <button class="badge bg-secondary text-wrap" id="zoom">Sumergir</button>
+          <button class="badge bg-success text-wrap" id="map"> <a class="link-light"href="public/mapa.html">Comenzar Viaje</a></button>
+      </div>
+      
 
-      <button id="autoRotate">Detener</button>
-      <button id="zoom">Sumergir</button>
-      <button id="map"><a href="public/mapa.html">Comenzar Viaje</a></button>
-    </div>    
-    <div>
-      <audio id="audio1" preload="auto">
-        <source src="./sounds/narration_sounds/LCB-CasadeJulia.mp3" type="audio/mpeg">
-        <p>Tu navegador no soporta HTML5</p>
-      </audio>
-      <audio  id="audio2" preload="auto">
-        <source src="./sounds/narration_sounds/LCB-CasadeLupe.mp3" type="audio/mpeg">
-        <p>Tu navegador no soporta HTML5</p>
-      </audio>
-      <audio id="audio3" preload="auto">
-        <source src="./sounds/narration_sounds/LCB-CasadeLupe(Arriera)2.mp3" type="audio/mpeg">
-        <p>Tu navegador no soporta HTML5</p>
-      </audio>
-    </div>
-    <script type="module" src="./js/main.js"></script>
+      <div class="col-sm-4 col-sm-offset-4 embed-responsive embed-responsive-4by3">
+        <audio class="embed-responsive-item" id="audio1" preload="auto">
+          <source src="./sounds/narration_sounds/LCB-CasadeJulia.mp3" type="audio/mpeg">
+          <p>Tu navegador no soporta HTML5</p>
+        </audio>
+        <audio  id="audio2" preload="auto">
+          <source src="./sounds/narration_sounds/LCB-CasadeLupe.mp3" type="audio/mpeg">
+          <p>Tu navegador no soporta HTML5</p>
+        </audio>
+        <audio id="audio3" preload="auto">
+          <source src="./sounds/narration_sounds/LCB-CasadeLupe(Arriera)2.mp3" type="audio/mpeg">
+          <p>Tu navegador no soporta HTML5</p>
+        </audio>
+      </div>
+      <script type="module" src="./js/main.js"></script>
   </body>
 </html>
