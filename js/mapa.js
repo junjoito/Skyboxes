@@ -1,16 +1,19 @@
 import * as THREE from './three.module.js';
 import { FirstPersonControls } from "./FirstPersonControls.js";
-
+import { OrbitControls } from "./OrbitControls.js";
 let camera, controls, scene, renderer;
 
 let cube1, cube2, cube3, cube4, cube5;
 
 let control;
 
+const raycaster = new THREE.Raycaster();
+const pointer = new THREE.Vector2();
+
 const clock = new THREE.Clock();
 
 function init() {
-    camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 1, 10000 );
+    camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 10000 );
 	camera.position.set( 0, 35, 0 );
 
 	const listener = new THREE.AudioListener();
@@ -196,14 +199,15 @@ function init() {
 	document.body.appendChild( renderer.domElement );
 
 	//Controles
-
-	controls = new FirstPersonControls( camera, renderer.domElement );
-	controls.movementSpeed = 150;
-	controls.lookSpeed = 0.1;
-	controls.lookVertical = false;
+	FirstPerson();
+	// controls = new FirstPersonControls( camera, renderer.domElement );
+	// controls.movementSpeed = 150;
+	// controls.lookSpeed = 0.1;
+	// controls.lookVertical = false;
 	
 
-
+	window.addEventListener( 'pointermove', onPointerMove );
+	// document.addEventListener( 'pointerdown', onPointerDown );
 	window.addEventListener( 'resize', onWindowResize );
 	animate();
 }
@@ -234,5 +238,69 @@ function render() {
 
 	controls.update( clock.getDelta() );
 	renderer.render( scene, camera );
+
+}
+
+function onPointerMove( event ) {
+
+	pointer.x = ( event.clientX / renderer.domElement.clientWidth ) * 2 - 1;
+	pointer.y = - ( event.clientY / renderer.domElement.clientHeight ) * 2 + 1;
+
+	raycaster.setFromCamera( pointer, camera );
+	const collitions= [cube1, cube2, cube3, cube4, cube5];
+	// See if the ray from the camera into the world hits one of our meshes
+	const intersects = raycaster.intersectObjects(collitions);
+	// const intersects_dos = raycaster.intersectObject(cube2);
+	// const intersects_tres = raycaster.intersectObject(cube3);
+	// const intersects_cuatro = raycaster.intersectObject(cube4);
+	// const intersects_cinco = raycaster.intersectObject(cube5);
+	// Toggle rotation bool for meshes that we clicked
+	if ( intersects.length > 0 ) {
+		
+		if(collitions.indexOf(cube1)==true) {}
+		{
+			
+			orbitControls();
+			controls.moveForward = false;
+			controls.moveBackward = false;
+			controls.moveLeft = false;
+			controls.moveRight = false;
+
+		}
+		
+		
+	}
+	
+
+}
+function FirstPerson() {
+
+	controls = new FirstPersonControls( camera, renderer.domElement );
+	controls.movementSpeed = 150;
+	controls.lookSpeed = 0.1;
+	controls.lookVertical = true;
+	camera.position.set(0, 35, 0 );
+
+	// camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 1000 );
+    // camera.position.set( -150, 20, 0 );
+    // controls = new THREE.FirstPersonControls( camera, renderer.domElement );
+    // controls.lookSpeed = 0.05;
+    // controls.movementSpeed = 50;
+
+}
+
+
+function orbitControls() {
+
+	controls = new OrbitControls(camera.position.set(0, 35, - 450 ));
+	controls.enabled = true;
+	controls.minDistance = 0;
+	controls.maxDistance = 0;
+	
+
+	
+	// camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 1000 );
+    // camera.position.set( 100, 100, 100 );
+    // controls = new THREE.OrbitControls( camera, renderer.domElement );
 
 }
