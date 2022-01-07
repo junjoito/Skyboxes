@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Antique&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Shippori Antique', sans-serif; 
+}
+a{
+    text-decoration:none;
+    color: rgb(12, 11, 11);
+}
+body{
+ /*display: flex;*/
+ justify-content: center;
+ align-items: center;
+ 
+ overflow-x: hidden;
+    overflow-y: hidden;
+ background: rgb(37, 35, 35);
+ width: 100vw;
+    height: 100vh;
+
+    margin: 0;
+ /*text-transform: uppercase;*/
+}
+#particles-js{
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    z-index: 10;
+    opacity: 0.999;
+}
+#boton-map{
+    position:sticky;
+    top: 90%;
+   
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    justify-items: center;
+    z-index: 99;
+}
+#boton{
+        text-decoration: none;
+        border-radius: 5px ;
+        border:black;       
+
+        font-size: 16px;
+        width: 150px;
+         height: 30px;
+        cursor: pointer;
+        box-shadow: 0 5px rgb(47, 83, 44);
+    }
+#boton:hover {background-color: rgb(134, 202, 131)}
+
+#boton:active {
+  background-color: #fff;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+#contenido{
+   
+    padding: 20px,30px;
+    margin-right: auto;
+    margin-left: auto;
+    
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+   
+    position: fixed;
+    z-index: -5;
+    
+}
+
+
+ 
