@@ -27,12 +27,12 @@ body{
     height: 100vh;
     width: 100%;
     position: fixed;
-    z-index: 10;
+    z-index: 9;
     opacity: 0.999;
 }
 #boton-map{
     position:sticky;
-    top: 90%;
+    top: 92%;
    
     display: flex;
     text-align: center;
